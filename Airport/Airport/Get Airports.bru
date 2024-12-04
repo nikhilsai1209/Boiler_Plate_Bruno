@@ -1,0 +1,19 @@
+meta {
+  name: Get Airports
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/favorites
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenValue}}
+}
+
+script:pre-request {
+  req.setHeader("Authorization", "Bearer {{tokenValue}}")
+}
